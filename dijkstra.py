@@ -20,6 +20,17 @@ def load_graph(graph_file):
 
 
 def dijkstra(graph, s, t):
+	"""
+	This function implements the main Dijkstra algorithm routine.
+	:param graph: the graph in the form of adjacency matrix
+	:type graph: numpy.ndarray
+	:param s: the source node
+	:type s: int
+	:param t: the target node
+	:type t: int
+	:return: the shortest sequence of nodes (path) to reach target from source
+	:rtype: collections.deque
+	"""
 
 	N = graph.shape[0]
 	dist = {k:math.inf for k in range(N)}
@@ -53,6 +64,10 @@ def dijkstra(graph, s, t):
 
 
 def main():
+	"""
+	The main function of the script.
+	"""
+
 	graph_file = 'graph.csv'
 	graph = load_graph(graph_file)
 	s = int(sys.argv[1])
