@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from collections import deque
 import sys
+import time
 
 
 def load_graph(graph_file):
@@ -68,11 +69,30 @@ def main():
 	The main function of the script.
 	"""
 
-	graph_file = 'graph.csv'
-	graph = load_graph(graph_file)
-	s = int(sys.argv[1])
-	t = int(sys.argv[2])
+	# Read input
+	mode = int(sys.argv[1])
+	if mode == 0:
+		graph_file = 'graph.csv'
+		graph = load_graph(graph_file)
+	elif mode == 1:
+		N = 10000
+		graph = np.random.randint(1, 10, size = (N, N))
+		graph = (graph + graph.T) / 2
+	else:
+		print('First argument should be either 0 (read graph from file) or 1 (generate random graph).')
+		return
+
+	s = int(sys.argv[2])
+
+	t = int(sys.argv[3])
+
+	# Run algorithm
+	start_time = time.time()
 	S = dijkstra(graph, s, t)
+	end_time = time.time()
+
+	# Print results
+	print('Elapsed time (sec.): ', end_time - start_time)
 	shortest_path_length = 0
 	for i in range(len(S) - 1):
 		shortest_path_length += graph[S[i], S[i+1]]
