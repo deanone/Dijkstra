@@ -26,4 +26,4 @@ Example: for a graph with N = 10 nodes stored in graph.csv file, source = 0 and 
 
 Performance:
 
-So far the algorithm was tested on graphs with different sizes, with the largest one having 10000 nodes and the corresponding adjacency matrix having 10^8 values. For this graph, the execution time was approximately 47 seconds.
+So far the algorithm was tested on graphs with different sizes, with the largest one having 10000 nodes and the corresponding adjacency matrix having 10^8 values. For this graph, the execution time was approximately 47 seconds. It's pretty slow right now but it will be faster :-)
